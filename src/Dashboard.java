@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 
 public class Dashboard extends JFrame implements ActionListener {
     String username;
-    JButton personalDetails, viewpersonalDetails, updatepersonalDetails, checkPackages;
+    JButton personalDetails, viewpersonalDetails, updatepersonalDetails, checkPackages,bookpackages, viewpackages;
     Dashboard(String username)
     {
         this.username = username;
@@ -86,19 +86,21 @@ public class Dashboard extends JFrame implements ActionListener {
         p2.add(checkPackages);
 
         //book Packages
-        JButton bookpackages = new JButton("Book Package");
+        bookpackages = new JButton("Book Package");
         bookpackages.setBounds(0, 220, 265, 44);
         bookpackages.setFont(new Font("Tahoma", Font.BOLD, 16));
         bookpackages.setBackground(Color.PINK);
         bookpackages.setMargin(new Insets(0,0, 0, 112));
+        bookpackages.addActionListener(this);
         p2.add(bookpackages);
 
         //view Packages
-        JButton viewpackages = new JButton("View Package");
+        viewpackages = new JButton("View Package");
         viewpackages.setBounds(0, 264, 265, 44);
         viewpackages.setFont(new Font("Tahoma", Font.BOLD, 16));
         viewpackages.setBackground(Color.PINK);
         viewpackages.setMargin(new Insets(0,0, 0, 112));
+        viewpackages.addActionListener(this);
         p2.add(viewpackages);
 
         //view hotels
@@ -195,6 +197,10 @@ public class Dashboard extends JFrame implements ActionListener {
 
         else if(ae.getSource() == checkPackages)
             new Checkpackage();
+        else if (ae.getSource() == bookpackages)
+            new BookPackage("sanchit@123");
+        else if (ae.getSource() == viewpackages)
+            new ViewPackage("sanchit@123");
     }
 
     public static void main(String[] args) {
